@@ -1,0 +1,115 @@
+.mbt-au-field-container {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    min-width: 100%;
+}
+.mbt-au-field-container .avatar-field-sec {
+    width: max-content;
+    position: relative;
+}
+.mbt-au-field-container .avatar-field-sec .sec-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.6;
+}
+.mbt-au-field-container .avatar-field-sec .sec-overlay-spinner {
+    display: none;
+    left: 30%;
+    position: absolute;
+    top: 30%;
+    width: 100px;
+    z-index: 99;
+}
+.mbt-au-field-container .mbt-au-field.avatar-field {
+    display: none;
+}
+.mbt-au-field-container .mbt-au-field.avatar-field.show {
+    display: block;
+}
+.mbt-au-field-container .mbt-au-field .btn {
+    padding: 12px;
+    font-size: 12px;
+    background: #437eeb;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+}
+.mbt-au-field-container .mbt-au-field .file-field {
+    display: none;
+}
+.mbt-au-field-container .mbt-au-field .file-select-btn {
+    padding: 14px;
+    font-size: 14px;
+}
+.mbt-au-field-container .mbt-au-field .file-remove-btn {
+    padding: 14px;
+    font-size: 14px;
+    background: #ff2f45;
+    display: none;
+}
+.mbt-au-field-container .mbt-au-field .file-remove-btn.show {
+    display: inline-block;
+    cursor: pointer;
+}
+.mbt-au-field-container .mbt-au-field.preview-field {
+    display: none;
+}
+.mbt-au-field-container .mbt-au-field.preview-field.ready {
+    display: block;
+    position: relative;
+    width: max-content;
+}
+.mbt-au-field-container .mbt-au-field.preview-field .ajax-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.6;
+}
+.mbt-au-field-container .mbt-au-field.preview-field .ajax-overlay-spinner {
+    display: none;
+    left: 30%;
+    position: absolute;
+    top: 30%;
+    width: 100px;
+    z-index: 99;
+}
+.mbt-au-field-container .mbt-au-field .mbt-avatar-preview-wrap {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 20px 0 20px 0;
+}
+.mbt-au-field-container .mbt-au-field .mbt-avatar-preview-wrap .croppie-container .cr-boundary{
+    margin: 0;
+}
+.mbt-au-field-container .mbt-au-message {
+    font-size: 14px;
+    padding: 10px 20px;
+    width: fit-content;
+    margin-top: 5px;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-weight: normal;
+}
+.mbt-au-field-container .mbt-au-message.error{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.mbt-au-field-container .mbt-au-message.success{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}

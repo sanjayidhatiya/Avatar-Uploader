@@ -1,0 +1,98 @@
+#. Name of the plugin
+msgid "MBT Avatar Uploader"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://mindboxtechnologies.com/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Easily add and edit profile pictures with an avatar upload field on your website's frontend pages and Edit Profile screen. Empower users to personalize their profiles with custom profile pictures in just a few clicks."
+msgstr ""
+
+#. Author of the plugin
+msgid "Mindbox Technologies"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://mindboxtechnologies.com/"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "MBT Avatar Uploader"
+msgstr ""
+
+msgid "Avatar Uploader"
+msgstr ""
+
+msgid "Use %s Short Code to Display Avatar Uploader Field"
+msgstr ""
+
+msgid "Use %s Short Code to Display User Avatar"
+msgstr ""
+
+msgid "Max Avatar Size Allowed"
+msgstr ""
+
+msgid "Allowed Avatar Type"
+msgstr ""
+
+msgid "Avatar Style"
+msgstr ""
+
+msgid "Avatar Dimension"
+msgstr ""
+
+msgid "Circle"
+msgstr ""
+
+msgid "Square"
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+msgid "Height"
+msgstr ""
+
+msgid "Upload Avatar"
+msgstr ""
+
+msgid "Change Avatar"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Rotate Left"
+msgstr ""
+
+msgid "Rotate Right"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "You must log in first"
+msgstr ""
+
+msgid "No Avatar Available"
+msgstr ""
+
+msgid "Upload path permission deny"
+msgstr ""
+
+msgid "Avatar updated successfully"
+msgstr ""
+
+msgid "Avatar removed successfully"
+msgstr ""
+
+msgid "Only formats are allowed"
+msgstr ""
+
+msgid "Please upload file less than"
+msgstr ""
+
