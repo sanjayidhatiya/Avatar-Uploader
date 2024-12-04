@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: MBT Avatar Uploader
- * Plugin URI: https://mindboxtechnologies.com/
+ * Plugin URI: https://www.mindboxtechnologies.com/plugins/avatar-uploader
  * Description: Easily add and edit profile pictures with an avatar upload field on your website's frontend pages and Edit Profile screen. Empower users to personalize their profiles with custom profile pictures in just a few clicks.
  * Version: 1.0.0
  * Author: Mindbox Technologies
- * Author URI: https://mindboxtechnologies.com/
+ * Author URI: https://mindboxtechnologies.com
  * Text Domain: mbt-avatar-uploader
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
