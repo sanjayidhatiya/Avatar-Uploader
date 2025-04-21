@@ -2,12 +2,23 @@
 /**
 * Display Avatar Field Form on Frontend Side
 **/
-function avatar_field(){
+function avatar_field()
+{
     ob_start();
-        require_once MBT_AU_PLUGIN_DIR . '/form/avatar-field.php';    
+
+    // Detect admin profile page context
+    $is_admin_profile_page = is_admin() && in_array($GLOBALS['pagenow'], ['profile.php', 'user-edit.php']);
+
+    if ($is_admin_profile_page) {
+        require_once MBT_AU_PLUGIN_DIR . '/form/avatar-field-admin.php'; // simplified version
+    } else {
+        require_once MBT_AU_PLUGIN_DIR . '/form/avatar-field.php'; // original frontend version
+    }
+
     return ob_get_clean();
 }
 add_shortcode('MBT_Avatar_Field', 'avatar_field');
+
 /**
 * Display Avatar Photo on Frontend Side
 **/

@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: MBT Avatar Uploader
- * Plugin URI: https://www.mindboxtechnologies.com/plugins/avatar-uploader
+ * Plugin URI: https://mindboxtechnologies.com/
  * Description: Easily add and edit profile pictures with an avatar upload field on your website's frontend pages and Edit Profile screen. Empower users to personalize their profiles with custom profile pictures in just a few clicks.
  * Version: 1.0.0
  * Author: Mindbox Technologies
- * Author URI: https://mindboxtechnologies.com
+ * Author URI: https://mindboxtechnologies.com/
  * Text Domain: mbt-avatar-uploader
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,12 +22,12 @@ define('MBT_AU_HOME_URL', home_url());
 * Add Default Settings
 **/
 
-function mbt_au_activation_actions(){
+function mbtAuActivationActions(){
     do_action( 'mbt_au_extension_activation' );
 }
-register_activation_hook( __FILE__, 'mbt_au_activation_actions' );
+register_activation_hook( __FILE__, 'mbtAuActivationActions' );
 
-function mbt_au_default_options(){
+function mbtAuDefaultOptions(){
     $default = array(
         'max_size'          => '1024',
         'file_type'         => array('jpg'=>'jpg', 'jpeg'=>'jpeg', 'png'=>'png'),
@@ -42,13 +42,13 @@ function mbt_au_default_options(){
         mkdir( $path, 0777, true );
     }
 }
-add_action( 'mbt_au_extension_activation', 'mbt_au_default_options' );
+add_action( 'mbt_au_extension_activation', 'mbtAuDefaultOptions' );
 
 /**
 * Add Setting Link
 **/
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'mbt_au_settings_link');
-function mbt_au_settings_link( array $links ) {
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'mbtAuSettingsLink');
+function mbtAuSettingsLink( array $links ) {
     $url            = get_admin_url() . "users.php?page=mbt-avatar-uploader";
     $settings_link  = '<a href="' . $url . '">' . esc_html__('Settings', 'mbt-avatar-uploader') . '</a>';
     $links[]        = $settings_link;
@@ -58,10 +58,10 @@ function mbt_au_settings_link( array $links ) {
 /**
 * Translation Init
 **/
-function mbt_avatar_uploader_init() {
+function mbtAvatarUploaderInit() {
     load_plugin_textdomain( 'mbt-avatar-uploader', false, 'mbt-avatar-uploader/languages' );
 }
-add_action('init', 'mbt_avatar_uploader_init');
+add_action('init', 'mbtAvatarUploaderInit');
 
 /**
 * Load admin function
@@ -75,7 +75,7 @@ if(is_admin()){
 require_once MBT_AU_PLUGIN_DIR. '/mbt_functions.php';
 /**
 * Display Avatar Field Form via Short Code [MBT_Avatar_Field]
-* Display Avatar Fieled via Short Code [MBT_Avatar]
+* Display Avatar Field via Short Code [MBT_Avatar]
 **/
 require_once MBT_AU_PLUGIN_DIR. '/inc/avatar-field.php';
 /**
