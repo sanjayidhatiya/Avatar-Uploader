@@ -1,115 +1,466 @@
+/* ==========================================================================
+   MBT Avatar Uploader – Frontend Styles
+   ========================================================================== */
+
+/* ---------- Card wrapper ---------- */
 .mbt-au-field-container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
     width: 100%;
-    display: block;
+    max-width: 500px;
     margin: 0;
     padding: 0;
-    max-width: 100%;
-    min-width: 100%;
+    box-sizing: border-box;
 }
-.mbt-au-field-container .avatar-field-sec {
-    width: max-content;
+
+/* ---------- Main card ---------- */
+.mbt-au-card {
+    background: #ffffff;
+    border: 1px solid #e4e7f0;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(79, 84, 139, 0.10);
+    overflow: hidden;
+}
+
+/* ---------- Card header gradient ---------- */
+.mbt-au-card-header {
+    background: linear-gradient(140deg, #5b7fff 0%, #7c3aed 100%);
+    padding: 36px 28px 72px;
+    text-align: center;
     position: relative;
+}
+/* subtle dot pattern overlay */
+.mbt-au-card-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+.mbt-au-card-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Avatar ring (floats over header/body boundary) ---------- */
+.mbt-au-avatar-ring {
+    display: flex;
+    justify-content: center;
+    margin: -65px auto 0;
+    position: relative;
+    z-index: 2;
+}
+
+.mbt-au-avatar-wrap {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    box-shadow: 0 8px 24px rgba(92, 68, 200, 0.22);
+    overflow: hidden;
+    background: #eef0f8;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.mbt-au-avatar-wrap img#mbt_au_avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+.mbt-au-avatar-wrap:hover img#mbt_au_avatar {
+    transform: scale(1.07);
+}
+
+/* Edit overlay on hover */
+.mbt-au-avatar-edit-hint {
+    position: absolute;
+    inset: 0;
+    background: rgba(92, 68, 200, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+.mbt-au-avatar-wrap:hover .mbt-au-avatar-edit-hint {
+    opacity: 1;
+}
+.mbt-au-avatar-edit-hint svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Loading overlay over the whole avatar section */
+.mbt-au-field-container .avatar-field-sec {
+    position: relative;
+    text-align: center;
 }
 .mbt-au-field-container .avatar-field-sec .sec-overlay {
     display: none;
     position: absolute;
-    top: 0;
+    inset: 0;
     z-index: 9;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: 0.6;
+    background: rgba(255,255,255,0.75);
+    border-radius: 20px;
+    backdrop-filter: blur(2px);
 }
 .mbt-au-field-container .avatar-field-sec .sec-overlay-spinner {
     display: none;
-    left: 30%;
     position: absolute;
-    top: 30%;
-    width: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 36px;
+    height: 36px;
     z-index: 99;
 }
+
+/* ---------- Card body ---------- */
+.mbt-au-card-body {
+    padding: 20px 32px 32px;
+    text-align: center;
+}
+
+/* Divider line between card body sections */
+.mbt-au-card-divider {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, #5b7fff, #7c3aed);
+    border-radius: 99px;
+    margin: 0 auto 20px;
+}
+
+/* User name / subtitle below avatar */
+.mbt-au-user-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1d2e;
+    margin: 16px 0 5px;
+    line-height: 1.3;
+}
+.mbt-au-user-sublabel {
+    font-size: 12.5px;
+    color: #9499b7;
+    margin: 0 0 22px;
+    letter-spacing: 0.1px;
+}
+
+/* ---------- Hidden avatar-field div (legacy, keep display:none) ---------- */
 .mbt-au-field-container .mbt-au-field.avatar-field {
     display: none;
 }
 .mbt-au-field-container .mbt-au-field.avatar-field.show {
     display: block;
 }
-.mbt-au-field-container .mbt-au-field .btn {
-    padding: 12px;
-    font-size: 12px;
-    background: #437eeb;
-    border: none;
-    color: #fff;
-    border-radius: 10px;
+
+/* ---------- Action buttons row ---------- */
+.mbt-au-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
+
 .mbt-au-field-container .mbt-au-field .file-field {
     display: none;
 }
-.mbt-au-field-container .mbt-au-field .file-select-btn {
-    padding: 14px;
-    font-size: 14px;
+
+/* Base button */
+.mbt-au-field-container .mbt-au-field .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px 22px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    vertical-align: middle;
 }
+.mbt-au-field-container .mbt-au-field .btn:hover {
+    transform: translateY(-2px);
+}
+.mbt-au-field-container .mbt-au-field .btn:active {
+    transform: translateY(0);
+}
+.mbt-au-field-container .mbt-au-field .btn svg {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+}
+
+/* Primary (upload / change) */
+.mbt-au-field-container .mbt-au-field .file-select-btn {
+    background: linear-gradient(135deg, #5b7fff 0%, #7c3aed 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(91, 127, 255, 0.40);
+}
+.mbt-au-field-container .mbt-au-field .file-select-btn:hover {
+    background: linear-gradient(135deg, #4a6ff0 0%, #6b2fe0 100%);
+    box-shadow: 0 6px 20px rgba(91, 127, 255, 0.50);
+}
+
+/* Danger (remove) */
 .mbt-au-field-container .mbt-au-field .file-remove-btn {
-    padding: 14px;
-    font-size: 14px;
-    background: #ff2f45;
+    background: #fff;
+    color: #dc2626;
+    border: none; /* border replaced by inset shadow so height = same as borderless buttons */
     display: none;
+    box-shadow: inset 0 0 0 1.5px #fca5a5, 0 2px 10px rgba(220,38,38,0.08);
+}
+.mbt-au-field-container .mbt-au-field .file-remove-btn:hover {
+    background: #fef2f2;
+    box-shadow: inset 0 0 0 1.5px #dc2626, 0 4px 14px rgba(220,38,38,0.18);
 }
 .mbt-au-field-container .mbt-au-field .file-remove-btn.show {
-    display: inline-block;
+    display: inline-flex;
     cursor: pointer;
 }
+
+/* ---------- Crop / preview panel ---------- */
 .mbt-au-field-container .mbt-au-field.preview-field {
     display: none;
 }
 .mbt-au-field-container .mbt-au-field.preview-field.ready {
     display: block;
     position: relative;
-    width: max-content;
 }
+
+/* Crop card — connected visually to the main card */
+.mbt-au-crop-card {
+    background: #ffffff;
+    border: 1px solid #e4e7f0;
+    border-radius: 20px;
+    padding: 24px 24px 20px;
+    margin-top: 14px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(79, 84, 139, 0.08);
+}
+.mbt-au-crop-card-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #9499b7;
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.mbt-au-crop-card-title::before,
+.mbt-au-crop-card-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e8eaf0;
+    max-width: 60px;
+}
+
 .mbt-au-field-container .mbt-au-field.preview-field .ajax-overlay {
     display: none;
     position: absolute;
-    top: 0;
+    inset: 0;
     z-index: 9;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: 0.6;
+    background: rgba(255,255,255,0.80);
+    border-radius: 20px;
+    backdrop-filter: blur(3px);
 }
 .mbt-au-field-container .mbt-au-field.preview-field .ajax-overlay-spinner {
     display: none;
-    left: 30%;
     position: absolute;
-    top: 30%;
-    width: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40px;
+    height: 40px;
     z-index: 99;
 }
+
 .mbt-au-field-container .mbt-au-field .mbt-avatar-preview-wrap {
     display: block;
-    width: 100%;
-    height: 100%;
-    margin: 20px 0 20px 0;
+    margin: 0 0 16px;
 }
-.mbt-au-field-container .mbt-au-field .mbt-avatar-preview-wrap .croppie-container .cr-boundary{
-    margin: 0;
+.mbt-au-field-container .mbt-au-field .mbt-avatar-preview-wrap .croppie-container {
+    margin: 0 auto;
 }
+.mbt-au-field-container .mbt-au-field .mbt-avatar-preview-wrap .croppie-container .cr-boundary {
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(79,84,139,0.10);
+}
+
+/* Crop action row */
+.mbt-au-crop-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.mbt-au-crop-actions .btn svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Secondary ghost buttons (rotate) */
+.mbt-au-field-container .mbt-au-field .btn-ghost {
+    background: #f5f6ff;
+    color: #5b7fff;
+    border: none;
+    padding: 11px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 1.5px #d0d9ff;
+    line-height: 0;
+}
+.mbt-au-field-container .mbt-au-field .btn-ghost:hover {
+    background: #eaedff;
+    box-shadow: inset 0 0 0 1.5px #5b7fff, 0 2px 10px rgba(91,127,255,0.15);
+}
+
+/* Upload submit button inside crop card */
+.mbt-au-field-container .mbt-au-field .mbt-avatar-submit {
+    background: linear-gradient(135deg, #5b7fff 0%, #7c3aed 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 11px 32px; /* matches base .btn padding so all crop row buttons are same height */
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 5px 18px rgba(91, 127, 255, 0.45);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    line-height: 0;
+}
+.mbt-au-field-container .mbt-au-field .mbt-avatar-submit:hover {
+    background: linear-gradient(135deg, #4a6ff0 0%, #6b2fe0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(91, 127, 255, 0.55);
+}
+.mbt-au-field-container .mbt-au-field .mbt-avatar-submit svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* ---------- Hint text under crop area ---------- */
+.mbt-au-crop-hint {
+    font-size: 11.5px;
+    color: #b4b8d0;
+    margin: 12px 0 0;
+    text-align: center;
+    letter-spacing: 0.1px;
+}
+
+/* ---------- Status message ---------- */
 .mbt-au-field-container .mbt-au-message {
-    font-size: 14px;
-    padding: 10px 20px;
-    width: fit-content;
-    margin-top: 5px;
+    font-size: 13px;
+    padding: 11px 16px;
+    border-radius: 12px;
     border: 1px solid transparent;
-    border-radius: 0.25rem;
-    font-weight: normal;
+    font-weight: 500;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    animation: mbt-au-fadein 0.3s ease;
+    text-align: left;
 }
-.mbt-au-field-container .mbt-au-message.error{
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+.mbt-au-field-container .mbt-au-message.error,
+.mbt-au-field-container .mbt-au-message.success {
+    display: flex;
 }
-.mbt-au-field-container .mbt-au-message.success{
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
+.mbt-au-field-container .mbt-au-message.error {
+    color: #991b1b;
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+.mbt-au-field-container .mbt-au-message.success {
+    color: #166534;
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+@keyframes mbt-au-fadein {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- CSS spinner ---------- */
+.mbt-au-spinner {
+    display: none;
+    width: 34px;
+    height: 34px;
+    border: 3px solid #e8eaf0;
+    border-top-color: #5b7fff;
+    border-radius: 50%;
+    animation: mbt-au-spin 0.75s linear infinite;
+}
+@keyframes mbt-au-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- Avatar display shortcode [MBT_Avatar] ---------- */
+img.mbt-au-avatar {
+    display: block;
+    object-fit: cover;
+}
+img.mbt-au-avatar--circle {
+    border-radius: 50%;
+}
+img.mbt-au-avatar--square {
+    border-radius: 12px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 520px) {
+    .mbt-au-field-container {
+        max-width: 100%;
+    }
+    .mbt-au-card-body {
+        padding: 16px 20px 24px;
+    }
+    .mbt-au-crop-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .mbt-au-crop-actions .btn {
+        justify-content: center;
+    }
 }
