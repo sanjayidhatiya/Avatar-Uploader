@@ -1,0 +1,61 @@
+.mbt-au-info-box {
+	display: block;
+    padding: 10px 30px;
+    background: #fff;
+    width: 50%;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.mbt-au-info-box .mbt-au-info-text {
+	display: block;
+	font-size: 16px;
+	padding: 5px 0;
+	width: 100%;
+}
+.mbt-admin-avatar-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+    margin: 30px 0;
+}
+
+.mbt-avatar-left {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.mbt-avatar-left img {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    border: 2px solid #ccc;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+}
+
+.mbt-avatar-left input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.mbt-avatar-left button {
+    margin-right: 5px;
+}
+
+.mbt-avatar-right {
+    flex: 2;
+    min-width: 300px;
+}
+
+.mbt-avatar-right .preview-field {
+    border: 1px dashed #ccc;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mbt-avatar-right .croppie-container {
+    margin: 0 auto;
+}
